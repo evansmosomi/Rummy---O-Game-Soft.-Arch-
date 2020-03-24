@@ -4,8 +4,8 @@ This project is a web-based prototype of the tile game Rummy-O. In this reposito
 
 ## Table of Contents
 
-* [Traceability Matrix]
-* [Team Assessment Report]
+* [Traceability Matrix] (#matrix)
+* [Team Assessment Report] (#report)
 * [Requirments folder](#Requirments)
   * [req1](#req)
 * [Use Cases folder](#Usecase)
