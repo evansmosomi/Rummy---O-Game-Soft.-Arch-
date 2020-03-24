@@ -1,34 +1,24 @@
-This project is a web-based prototype of the tile game Rummy-O. In this repository one can find 5 folders; Code, Design, Requirements, Use Cases, and Test cases. Each of these folders contain associated atrifacts that breakdown and show the development of the project from start to finish.   
+# SOFE 2720 Final Project 
 
-Repository Directory 
+This project is a web-based prototype of the tile game Rummy-O. In this repository one can find 5 folders; Code, Design, Requirements, Use Cases, and Test cases. Each of these folders contain associated atrifacts that breakdown and show the development of the project from start to finish.  
 
-Traceability Matrix
-Team Assessment Report
+## Table of Contents
 
-Requirments folder
-[1](Requirments/)
-[2](Requirments/)
-[3](Requirments/)
+* [Traceability Matrix]
+* [Team Assessment Report]
+* [Requirments folder](#Requirments)
+  * [req1](#req)
+* [Use Cases folder](#Usecase)
+  * [usecase1](#use)
+* [Design folder](#Design)
+  * [des1](#des)
+* [Code folder](#Code)
+  * [code1](#co)
+* [Test Cases folder](#testCase)
+  * [test1](#test)
 
-Use Cases folder
-[1](Use Cases/)
-[2](Use Cases/)
-[3](Use Cases/)
 
-Design folder
-[1](Design/)
-[2](Design/)
-[3](Design/)
 
-Code folder
-[1](Code/)
-[2](Code/)
-[3](Code/)
-
-Test Cases folder
-[1](Test Cases/)
-[2](Test Cases/)
-[3](Test Cases/)
 
 
 
