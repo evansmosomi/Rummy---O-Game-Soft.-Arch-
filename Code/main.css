@@ -2,7 +2,7 @@
 {
 	width:50%;
 	margin: 20px auto;
-	background:dodgerblue;
+	background:darkgray;
 	border:solid 10px black;
 	padding: 10px;
 	border-radius:10px;
@@ -34,33 +34,33 @@
 
 .tile .value{
 	font-size:20pt;
-	font-family: sans-serif;
+	font-family: arial;
 }
 
 .tile .colour
 {
 	
-	height: 100px;
-	width: 90px;
+	height: 50px;
+	width: 40px;
 	
 }
 
 .tile .yellow
 {
-	background-position-y: 100px;
+	background-position-y: 50px;
 	 background-color: yellow;
 }
 
 .tile .blue
 {
-	background-position-x: 90px;
+	background-position-x: 40px;
 	background-color: blue;
 }
 
 .tile .red
 {
-	background-position-x:90px;
-	background-position-y:100px;
+	background-position-x:50px;
+	background-position-y:40px;
 	background-color: red;
 }
 .tile .green
@@ -69,6 +69,38 @@
 	background-position-y:100px;
 	background-color: green;
 }
+ 
+
+.players{
+       width: 500px;
+margin: 0 auto;
+margin-top: 20px;
+text-align: center;
+}
+
+.player{
+    width: 40%;
+    border: solid 5px #f5f5f5;
+    border-radius: 10px;
+    padding: 10px;
+    display: inline-block;
+    margin:1%;
+    vertical-align: top;
+    background:#black;
+}
+
+.player.active{
+    border: solid 5px #222;
+}
+
+.points{
+    text-align: center;
+    font-size: 20pt;
+    font-weight: bold;
+    margin: 10px;
+} 
+   
+       
                 
    
        
