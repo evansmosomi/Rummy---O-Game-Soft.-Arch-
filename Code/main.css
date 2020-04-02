@@ -33,11 +33,11 @@
 }
 
 .tile .value{
-	font-size:15pt;
+	font-size:20pt;
 	font-family: sans-serif;
 }
 
-.tile .suit
+.tile .colour
 {
 	
 	height: 100px;
@@ -54,17 +54,21 @@
 .tile .blue
 {
 	background-position-x: 90px;
+	background-color: blue;
 }
 
 .tile .red
 {
 	background-position-x:90px;
 	background-position-y:100px;
+	background-color: red;
 }
 .tile .green
 {
 	background-position-x:90px;
 	background-position-y:100px;
+	background-color: green;
 }
                 
-            
+   
+       
