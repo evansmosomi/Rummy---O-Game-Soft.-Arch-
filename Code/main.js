@@ -1,96 +1,37 @@
-var tiles = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13"];
-var colours = ["yellow", "blue", "red", "green"];
-var deck = new Array();
 
-function getDeck()
-{
-	var deck = new Array();
+        var colours = ["Red", "Yellow", "Blue", "Clubs"];
+        var values = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14"];
+        var deck = new Array();
+        var players = new Array();
+        var currentPlayer = 0;
 
-	for(var i = 0; i < colours.length; i++)
-	{
-		for(var x = 0; x < tiles.length; x++)
-		{
-			var tile = {Value: tiles[x], colour: colours[i]};
-			deck.push(tile);
-		}
-	}
-		
-	return deck;
-}
-
-function startGame () 
-{
- 
-	deck = getDeck();
-	shuffle();
-	renderDeck(2);
-	createPlayers(2);
-    createPlayersUI();
-	document.getElementById('player_' + currentPlayer).classList.add('active');
-}
-
- function createPlayers(num)
-{
-     players = new Array();
-     for(var i = 1; i <= num; i++)
-     {
-           var hand = new Array();
-           var player = { Name: 'Player ' + i, ID: i, Points: 0, Hand: hand };
-           players.push(player);
-     }          
-}
-
-function deal()
-{
-	 for(var i = 0; i < 2; i++)
+        function createDeck()
+        {
+            deck = new Array();
+            for (var i = 0 ; i < values.length; i++)
             {
-                for (var j = 0; j < players.length; j++)
+                for(var x = 0; x < colours.length; x++)
                 {
-                    var current = deck.pop();
-                    players[j].Hand.push(current);
-                    renderCard(1);
+                    var weight = parseInt(values[i]);
+                    
+                    var tile = { Value: values[i], colour: colours[x], Weight: weight };
+                    deck.push(tile);
                 }
             }
-}
+        }
 
+        function createPlayers(num)
+        {
+            players = new Array();
+            for(var i = 1; i <= num; i++)
+            {
+                var hand = new Array();
+                var player = { Name: 'Player ' + i, ID: i, Points: 0, Hand: hand };
+                players.push(player);
+            }
+        }
 
-function shuffle()
-{
-	
-	for (var i = 0; i < 1200; i++)
-	{
-		var location1 = Math.floor((Math.random() * deck.length));
-		var location2 = Math.floor((Math.random() * deck.length));
-		var temp = deck[location1];
-
-		deck[location1] = deck[location2];
-		deck[location2] = temp;
-	}
-
-	
-}
-
-function renderDeck(num)
-{
-	document.getElementById('deck').innerHTML = '';
-	for(var i = 0; i < num ; i++)
-	{
-		var tile = document.createElement("div");
-		var value = document.createElement("div");
-		var colour = document.createElement("div");
-		tile.className = "tile";
-		value.className = "value";
-		colour.className = "colour " + deck[i].colour;
-
-		value.innerHTML = deck[i].Value;
-		tile.appendChild(value);
-		tile.appendChild(colour);
-
-		document.getElementById("deck").appendChild(tile);
-	}
-}
-
- function createPlayersUI()
+        function createPlayersUI()
         {
             document.getElementById('players').innerHTML = '';
             for(var i = 0; i < players.length; i++)
@@ -114,6 +55,107 @@ function renderDeck(num)
             }
         }
 
+        function shuffle()
+        {
+            
+            for (var i = 0; i < 1500; i++)
+            {
+                var location1 = Math.floor((Math.random() * deck.length));
+                var location2 = Math.floor((Math.random() * deck.length));
+                var temp = deck[location1];
 
+                deck[location1] = deck[location2];
+                deck[location2] = temp;
+            }
+        }
+
+        function startGame()
+        {
+			
+            currentPlayer = 0;
+            createDeck();
+            shuffle();
+            createPlayers(document.getElementById("play").value);
+            createPlayersUI();
+            dealHands(1);
+            document.getElementById('player_' + currentPlayer).classList.add('active');
+        }
+
+        function dealHands(k)
+        {
+           
+            for(var i = 0; i < k; i++)
+            {
+                for (var j = 0; j < players.length; j++)
+                {
+                    var tile = deck.pop();
+                    players[j].Hand.push(tile);
+                    rendertile(tile, j);
+                    updatePoints();
+                }
+            }
+
+            updateDeck();
+        }
+
+        function rendertile(tile, player)
+        {
+            var hand = document.getElementById('hand_' + player);
+            hand.appendChild(gettileUI(tile));
+        }
+
+        function gettileUI(tile)
+        {
+            var el = document.createElement('div');
+            var icon = '';
+            if (tile.colour == 'Yellow')
+            icon='yellow';
+            else if (tile.colour == 'Red')
+            icon = 'red';
+            else if (tile.colour == 'Blue')
+            icon = 'blue';
+            else
+            icon = 'green';
+            
+            el.className = 'tile';
+            el.innerHTML = tile.Value + '<br/>' + icon;
+            return el;
+        }
+
+        function getPoints(player)
+        {
+            var points = 0;
+            for(var i = 0; i < players[player].Hand.length; i++)
+            {
+                points += players[player].Hand[i].Weight;
+            }
+            players[player].Points = points;
+            return points;
+        }
+
+        function updatePoints()
+        {
+            for (var i = 0 ; i < players.length; i++)
+            {
+                getPoints(i);
+                document.getElementById('points_' + i).innerHTML = players[i].Points;
+            }
+        }
+
+        function deal()
+        {
+          createPlayers(document.getElementById("play").value);
+            createPlayersUI();
+            dealHands(14);
+            document.getElementById('player_' + currentPlayer).classList.add('active');
+        }
+
+       
+
+        
+
+        
+
+        
                 
             
