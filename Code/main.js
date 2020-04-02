@@ -24,15 +24,35 @@ function startGame ()
 	deck = getDeck();
 	shuffle();
 	renderDeck(2);
-	
+	createPlayers(2);
+    createPlayersUI();
+	document.getElementById('player_' + currentPlayer).classList.add('active');
+}
+
+ function createPlayers(num)
+{
+     players = new Array();
+     for(var i = 1; i <= num; i++)
+     {
+           var hand = new Array();
+           var player = { Name: 'Player ' + i, ID: i, Points: 0, Hand: hand };
+           players.push(player);
+     }          
 }
 
 function deal()
 {
-	 
-	shuffle();
-	renderDeck(14);
+	 for(var i = 0; i < 2; i++)
+            {
+                for (var j = 0; j < players.length; j++)
+                {
+                    var current = deck.pop();
+                    players[j].Hand.push(current);
+                    renderCard(1);
+                }
+            }
 }
+
 
 function shuffle()
 {
@@ -47,7 +67,7 @@ function shuffle()
 		deck[location2] = temp;
 	}
 
-	//renderDeck();
+	
 }
 
 function renderDeck(num)
@@ -69,6 +89,30 @@ function renderDeck(num)
 		document.getElementById("deck").appendChild(tile);
 	}
 }
+
+ function createPlayersUI()
+        {
+            document.getElementById('players').innerHTML = '';
+            for(var i = 0; i < players.length; i++)
+            {
+                var div_player = document.createElement('div');
+                var div_playerid = document.createElement('div');
+                var div_hand = document.createElement('div');
+                var div_points = document.createElement('div');
+
+                div_points.className = 'points';
+                div_points.id = 'points_' + i;
+                div_player.id = 'player_' + i;
+                div_player.className = 'player';
+                div_hand.id = 'hand_' + i;
+
+                div_playerid.innerHTML = 'Player ' + players[i].ID;
+                div_player.appendChild(div_playerid);
+                div_player.appendChild(div_hand);
+                div_player.appendChild(div_points);
+                document.getElementById('players').appendChild(div_player);
+            }
+        }
 
 
                 
