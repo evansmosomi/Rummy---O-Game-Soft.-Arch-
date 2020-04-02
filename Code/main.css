@@ -1,0 +1,70 @@
+.deck
+{
+	width:50%;
+	margin: 20px auto;
+	background:dodgerblue;
+	border:solid 10px black;
+	padding: 10px;
+	border-radius:10px;
+	text-align: center;
+	color:white;
+}
+
+.tile
+{
+	padding: 10px;
+	border: solid 1px #808080;
+	background-color: white;
+	display: inline-block;
+	border-radius: 10px;
+	font-size: 14pt;
+	text-align: center;
+	color:black;
+	margin: 3px;
+}
+
+.btn
+{
+	background:white;
+	padding: 10px 20px;
+	border-radius:30px;
+	margin: 10px;
+	display:inline-block;
+}
+
+.tile .value{
+	font-size:15pt;
+	font-family: sans-serif;
+}
+
+.tile .suit
+{
+	
+	height: 100px;
+	width: 90px;
+	
+}
+
+.tile .yellow
+{
+	background-position-y: 100px;
+	 background-color: yellow;
+}
+
+.tile .blue
+{
+	background-position-x: 90px;
+}
+
+.tile .red
+{
+	background-position-x:90px;
+	background-position-y:100px;
+}
+.tile .green
+{
+	background-position-x:90px;
+	background-position-y:100px;
+}
+                
+            
