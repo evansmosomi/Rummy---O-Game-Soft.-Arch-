@@ -18,6 +18,22 @@ function getDeck()
 	return deck;
 }
 
+function startGame () 
+{
+ 
+	deck = getDeck();
+	shuffle();
+	renderDeck(2);
+	
+}
+
+function deal()
+{
+	 
+	shuffle();
+	renderDeck(14);
+}
+
 function shuffle()
 {
 	
@@ -31,20 +47,20 @@ function shuffle()
 		deck[location2] = temp;
 	}
 
-	renderDeck();
+	//renderDeck();
 }
 
-function renderDeck()
+function renderDeck(num)
 {
 	document.getElementById('deck').innerHTML = '';
-	for(var i = 0; i < deck.length; i++)
+	for(var i = 0; i < num ; i++)
 	{
 		var tile = document.createElement("div");
 		var value = document.createElement("div");
 		var colour = document.createElement("div");
 		tile.className = "tile";
 		value.className = "value";
-		colour.className = "suit " + deck[i].Suit;
+		colour.className = "colour " + deck[i].colour;
 
 		value.innerHTML = deck[i].Value;
 		tile.appendChild(value);
@@ -54,13 +70,6 @@ function renderDeck()
 	}
 }
 
-function load()
-{
-	deck = getDeck();
-	shuffle();
-	renderDeck();
-}
 
-window.onload = load;
                 
             
