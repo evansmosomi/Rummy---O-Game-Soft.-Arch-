@@ -6,4 +6,4 @@ Acceptance tests are those tests that demonstrate that the product has achieved 
 
 
 After the product was finished being developed some accountabilty test were run to see how the project preformed. The results 
-for which can be seen in the [Accountibilty File](#test cases/Accountabilty testing.docx)
+for which can be seen in the [Accountibilty File](#Accountabilty testing.docx)
