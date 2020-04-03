@@ -1,6 +1,6 @@
 
         var colours = ["Red", "Yellow", "Blue", "Clubs"];
-        var values = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14"];
+        var values = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13"];
         var deck = new Array();
         var players = new Array();
         var currentPlayer = 0;
@@ -17,7 +17,9 @@
                     var tile = { Value: values[i], colour: colours[x], Weight: weight };
                     deck.push(tile);
                 }
+				
             }
+			
         }
 
         function createPlayers(num)
@@ -58,7 +60,7 @@
         function shuffle()
         {
             
-            for (var i = 0; i < 1500; i++)
+            for (var i = 0; i < 100; i++)
             {
                 var location1 = Math.floor((Math.random() * deck.length));
                 var location2 = Math.floor((Math.random() * deck.length));
@@ -95,7 +97,7 @@
                 }
             }
 
-            updateDeck();
+            
         }
 
         function rendertile(tile, player)
@@ -144,10 +146,13 @@
 
         function deal()
         {
-          createPlayers(document.getElementById("play").value);
-            createPlayersUI();
+			
+            createDeck();
+			shuffle()
             dealHands(14);
             document.getElementById('player_' + currentPlayer).classList.add('active');
+			 var joker = { Value: J, colour: help, Weight: weight };
+            deck.push(joker);
         }
 
        
@@ -157,5 +162,3 @@
         
 
         
-                
-            
