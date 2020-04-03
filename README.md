@@ -14,7 +14,7 @@ This project is a web-based prototype of the tile game Rummy-O. In this reposito
   * [des1](#des)
 * [Code folder](#Code)
   * [code1](#co)
-* [Test Cases folder](#test cases)
+* [Test Cases folder](#testCase)
   * [test1](#test)
 
 
