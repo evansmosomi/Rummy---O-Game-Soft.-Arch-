@@ -70,11 +70,23 @@
                 deck[location2] = temp;
             }
         }
+        function selectStarter()
+        {
+            for (var i=1; i<num; i++)
+            {
+                if (Player[i].points<Player[i+1].points) 
+                {
+                    currentPlayer=Player[i];
+                }
+            }
+            
+        }
+
 
         function startGame()
         {
 			
-            currentPlayer = 0;
+           //currentPlayer = 0;
             createDeck();
             shuffle();
             createPlayers(document.getElementById("play").value);
