@@ -98,11 +98,14 @@
 
         function dealHands(k)
         {
-           
-            for(var i = 0; i < k; i++)
-            {
-                for (var j = 0; j < players.length; j++)
-                {
+           for(var a = 0;i<a;a++){
+	   	for(var b = 0;b<players.length;b++){
+			players[b].Hand.pull();
+			updatepoints();
+		}
+	   }
+           for(var i = 0; i < k; i++){
+                for (var j = 0; j < players.length; j++){
                     var tile = deck.pop();
                     players[j].Hand.push(tile);
                     rendertile(tile, j);
@@ -111,7 +114,7 @@
             }   
         }
 
-		function check()
+	function check()
 		{
 			if (players[currentPlayer].Points > players[(currentPlayer+1)].Points )
             {
