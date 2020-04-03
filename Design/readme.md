@@ -1,6 +1,9 @@
 The Design folder contains 2 pdf files:
+
 	1.The visual paradigm designed models
+	
 	2. The review report for design
+	
 	3. Design review checklist
 
 Once the design model pdf is opened, it shows a list of class diagrams that aided the design.
