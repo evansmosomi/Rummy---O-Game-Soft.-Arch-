@@ -1,8 +1,11 @@
 This folder includes the source code that runs the program. It has different versions of the code but we are using the files in the newer version of the code.
 
 It contains:
+
  	1. The main CSS file for styling the program
+	
 	2. The main HTML file that contains the layout of the program - this is saved in the public folder
+	
 	3. The main JS file that contains the functionality of the program - this is stored in the public folder
 
 The code was done in node.js and run on the local host server. The instructions on how to run the code are as follows:
