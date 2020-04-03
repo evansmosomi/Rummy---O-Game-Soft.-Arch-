@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
- <html > 
+ <html> 
     <head>
         
         <link rel="stylesheet" href="main.css">
@@ -14,16 +14,20 @@
                 <div class="game-options">
                     <input type="button" id="btnStart" class="btn" value="Start" onclick="startGame()">
                     <input type="button" class="btn" value="Deal" onclick="deal()">
-                    <input type="button" class="btn" value="Meld" onclick="stay()">
-					
+                    <input type="button" class="btn" value="Meld" onclick="initalMelds()">
+					<input type="button" class="btn" value="Next" onclick="reMeld()">
+					<input type="button" class="btn" value="End" onclick="end()">
+					<p>Number of Player</p>
 					<input type="number" id="play" name="player" min="2" max="4">
+					
+		
 					
                     </div>
             
                         <div class="status" id="status"></div>
             
                   
-            
+					<div id="tile" class="test">
                     <div id="players" class="players">
                     </div>
             

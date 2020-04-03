@@ -4,12 +4,16 @@
         var deck = new Array();
         var players = new Array();
         var currentPlayer = 0;
+        var end_game = false;
 
 
 
 
 
 
+        //this function should create a deck to check this we will call the function and output all the tiles
+
+        
 
 
         function createDeck()
@@ -23,11 +27,24 @@
                     
                     var tile = { Value: values[i], colour: colours[x], Weight: weight };
                     deck.push(tile);
+
+                    //we want to output all the tiles in the terminal
+                    console.log(tile);
+
                 }
 				
             }
 			
         }
+
+        createDeck();
+        //the program should output all the tiles in order
+        console.log("hi");
+
+
+
+
+
 
         function createPlayers(num)
         {
@@ -78,22 +95,10 @@
             }
         }
 
-        function selectStarter()
-        {
-        	for (var i=1; i<num; i++)
-        	{
-        		if (Player[i].points<Player[i+1].points) 
-        		{
-        			currentPlayer=Player[i];
-        		}
-        	}
-        	
-        }
-
         function startGame()
         {
-            //currentPlayer = 0;
-            selectStarter();
+			
+            currentPlayer = 0;
             createDeck();
             shuffle();
             createPlayers(document.getElementById("play").value);
@@ -101,7 +106,7 @@
             dealHands(1);
             document.getElementById('player_' + currentPlayer).classList.add('active');
 			check();
-        } 
+        }
 
         function dealHands(k)
         {
@@ -185,9 +190,69 @@
         }
 
        
+        function eliminate_tiles()
+        {
+        	while(end_game == false){
+        		if(player.length == 0){
+        			end_game = true;
+        		}
+
+        		else{
+        			next_turn();
+        		}
+        	}
+
+        } 
+
+
+
+
 
         
+        function next_turn()
+        {
 
+        }
+
+
+        //################################## use these functions to edit arrays ####################################################
+        
+        function add_item_to_array(list, item){
+        	var list_size = list.length;
+        	var new_list = new Array(list_size + 1);
+
+        	for (var i = 0 ; i < list_size; i++)
+        	{
+        		new_list[i] = list[i];
+        	}
+        	new_list[list_size] = item;
+
+        	return new_list;
+        	//for this to work you have to re initialize your list like          var (name of the list) = add_item_to_array(list, item)
+
+        }
+
+        function remove_item_from_array(list, item){
+        	var list_size = list.length;
+        	var new_list = new Array(list_size - 1);
+        	var index = -1;
+        	for (var i = 0 ; i < list_size - 1; i++)
+        	{
+        		if(list[i]!=item){
+        			new_list[i] = list[i];
+        		}
+        		else{
+        			index = list[i];
+        		}
+        		
+        	}
+        	if (index != -1){
+        		new_list[index] = list[list_size-1];
+        	}
+
+        	return new_list;
+        	//for this to work you have to re initialize your list like          var (name of the list) = remove_item_from_array(list, item)
+        }
         
 
         
