@@ -1,9 +1,10 @@
 
-        var colours = ["Red", "Yellow", "Blue", "Clubs"];
+        var colours = ["Red", "Yellow", "Blue", "Green"];
         var values = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13"];
         var deck = new Array();
         var players = new Array();
         var currentPlayer = 0;
+
 
         function createDeck()
         {
@@ -70,23 +71,11 @@
                 deck[location2] = temp;
             }
         }
-        function selectStarter()
-        {
-            for (var i=1; i<num; i++)
-            {
-                if (Player[i].points<Player[i+1].points) 
-                {
-                    currentPlayer=Player[i];
-                }
-            }
-            
-        }
-
 
         function startGame()
         {
 			
-           //currentPlayer = 0;
+            currentPlayer = 0;
             createDeck();
             shuffle();
             createPlayers(document.getElementById("play").value);
@@ -173,13 +162,112 @@
             dealHands(14);
             document.getElementById('player_' + currentPlayer).classList.add('active');
 			check();
-			 //var joker = { Value: J, colour: help, Weight: weight };
+			 //var joker = { Value: J, colour: blue, Weight: weight };
            // deck.push(joker);
         }
 
-       
-
+       function initalMelds ()
+		{
+			var meld = new Array;
+			for (var i = 0; i < 14 ; i++)
+			{
+				for (var j = 0; j < 14 ; j++)
+				{
+					for (var k = 0; k < 14 ; k++)
+					{
+						c = players[currentPlayer].Hand[i].weight;
+						n = players[currentPlayer].Hand[j].weight;
+						f = players[currentPlayer].Hand[k].weight;
+						
+				
+						if (((c-n)== 1) && ((n-f) == 1))
+						{
+							var tile1 = hand.pop(c);
+							var tile2 = hand.pop(j);
+							var tile3 = hand.pop(k);
+							players[currentPlayer].meld.push(tile1);
+							players[currentPlayer].meld.push(tile2);
+							players[currentPlayer].meld.push(tile3);
+							
+						}		
+					}
+				}	
+			}
+			
+			for (var n = 0; n < meld.length ; n++) 
+			{
+			var tile = meld[n];
+			rendertile(tile, currentPlayer);
+			}
+			if ( players[currentPlayer].Points > 25)
+			{
+			switchActive();
+			}
+		}
         
+
+        function switchActive ()
+		{
+			document.getElementById('player_' + currentPlayer).classList.remove('active');
+			currentPlayer += 1;
+			document.getElementById('player_' + currentPlayer).classList.add('active');
+		}
+		/*
+		
+		function reMeld ()
+		{
+			var reMel = new Array;
+			var set = document.getElementById("tile").addEventListener("click");
+				if ((player[currentPlayer].hand.tile.colour ==set.colour) &&
+				(player[currentPlayer].hand.tile.weight - set.weight) == 1)
+				{
+					players[currentPlayer].reMel.push(set);
+					players[currentPlayer].reMel.push(tile);
+					eliminate_tiles()
+				}
+		}
+
+        function replaceJoker ()
+		{
+			x = players[currentPlayer].Hand.tile[Value: values[J], colour: colours[blue], Weight: weight];
+			 
+			for (var i = 0; i < 14 ; i++)
+					{
+						c = players[currentPlayer].Hand[i]
+						if (x==c){
+							
+							eliminate_tiles()
+						}
+					}
+		}
+		*/
+		
+		function eliminate_tiles()
+        {
+        	while(end_game == false){
+        		if(player.length == 0){
+        			end_game = true;
+        		}
+
+        		else{
+        			switchActive ();
+        		}
+        	}
+
+        } 
+
+		
+		function end ()
+		{
+			if (players[currentPlayer].Points > players[(currentPlayer+1)].Points )
+            {
+				alert("Player 1 Wins");
+			}
+			else  
+			{
+				alert("Player 2 Wins");
+			}
+		}
 
         
 
