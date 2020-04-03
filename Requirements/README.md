@@ -1,5 +1,4 @@
-* [Requirements folder](#Requirements)
-* [req1](#req)
+
 
 In this folder you can find 3 files which contain no code but serve the purpose of gathering the requirements to design the game.
 
