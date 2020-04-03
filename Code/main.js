@@ -81,6 +81,7 @@
             createPlayersUI();
             dealHands(1);
             document.getElementById('player_' + currentPlayer).classList.add('active');
+			check();
         }
 
         function dealHands(k)
@@ -95,11 +96,19 @@
                     rendertile(tile, j);
                     updatePoints();
                 }
-            }
-
-            
+            }   
         }
 
+		function check()
+		{
+			if (players[currentPlayer].Points > players[(currentPlayer+1)].Points )
+            {
+                document.getElementById('player_' + currentPlayer).classList.remove('active');
+                currentPlayer += 1;
+                document.getElementById('player_' + currentPlayer).classList.add('active');
+            }
+		}
+		
         function rendertile(tile, player)
         {
             var hand = document.getElementById('hand_' + player);
@@ -151,8 +160,9 @@
 			shuffle()
             dealHands(14);
             document.getElementById('player_' + currentPlayer).classList.add('active');
-			 var joker = { Value: J, colour: help, Weight: weight };
-            deck.push(joker);
+			check();
+			 //var joker = { Value: J, colour: help, Weight: weight };
+           // deck.push(joker);
         }
 
        
