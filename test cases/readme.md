@@ -1,2 +1,6 @@
-Include report on the test cases that you performed in your code in this folder. I expect to see results for acceptance testing.
-Acceptance tests are those tests that demonstrate that the product has achieved the business requirements of the product.
+This folder contains various test cases performed in this program
+	1. Unit Test
+	2. Continuous Integration Test
+	3. Acceptance Test
+
+These tests help demonstrate that the program has achieved its requirements.
